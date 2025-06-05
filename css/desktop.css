@@ -1,0 +1,385 @@
+/* Desktop Environment Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
+}
+
+/* Login Screen */
+.login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: 300px;
+}
+
+.login-container h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background: #667eea;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-form button:hover {
+    background: #5a67d8;
+}
+
+/* Desktop */
+.desktop {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.desktop-background {
+    width: 100%;
+    height: calc(100% - 50px);
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>'), linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+}
+
+/* Desktop Icons */
+.desktop-icons {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.desktop-icon .icon {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.desktop-icon .icon-label {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Taskbar */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 1000;
+}
+
+.start-menu-btn {
+    background: #667eea;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.start-menu-btn:hover {
+    background: #5a67d8;
+}
+
+.taskbar-items {
+    flex: 1;
+    display: flex;
+    gap: 5px;
+}
+
+.taskbar-item {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.taskbar-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.taskbar-item.active {
+    background: #667eea;
+}
+
+.system-tray {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    font-size: 14px;
+}
+
+.user-info {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.user-info:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.admin-btn {
+    background: #e53e3e;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.admin-btn:hover {
+    background: #c53030;
+}
+
+/* Start Menu */
+.start-menu {
+    position: fixed;
+    bottom: 60px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 250px;
+    z-index: 2000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.start-menu-item {
+    color: white;
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2px 0;
+    transition: background 0.2s;
+}
+
+.start-menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Context Menu */
+.context-menu {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 5px;
+    min-width: 200px;
+    z-index: 3000;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.context-item {
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2px 0;
+    transition: background 0.2s;
+    font-size: 14px;
+}
+
+.context-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* User Menu */
+.user-menu {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 5px;
+    min-width: 150px;
+    z-index: 2000;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.user-menu-item {
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2px 0;
+    transition: background 0.2s;
+    font-size: 14px;
+}
+
+.user-menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.modal-buttons button:first-child {
+    background: #667eea;
+    color: white;
+}
+
+.modal-buttons button:first-child:hover {
+    background: #5a67d8;
+}
+
+.modal-buttons button:last-child {
+    background: #e2e8f0;
+    color: #333;
+}
+
+.modal-buttons button:last-child:hover {
+    background: #cbd5e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .desktop-icons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .desktop-icon {
+        width: 60px;
+    }
+    
+    .desktop-icon .icon {
+        font-size: 24px;
+    }
+    
+    .desktop-icon .icon-label {
+        font-size: 10px;
+    }
+    
+    .start-menu {
+        min-width: 200px;
+    }
+}
