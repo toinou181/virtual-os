@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual OS</title>
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/windows.css">
+    <link rel="stylesheet" href="css/apps.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <h1>Virtual OS</h1>
+            <div class="login-form">
+                <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="password" placeholder="Mot de passe" required>
+                <button onclick="login()">Se connecter</button>
+                <button onclick="showRegister()">Créer un compte</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Screen -->
+    <div id="registerScreen" class="login-screen" style="display: none;">
+        <div class="login-container">
+            <h1>Créer un compte</h1>
+            <div class="login-form">
+                <input type="text" id="newUsername" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="newPassword" placeholder="Mot de passe" required>
+                <input type="password" id="confirmPassword" placeholder="Confirmer le mot de passe" required>
+                <button onclick="register()">Créer</button>
+                <button onclick="showLogin()">Retour</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Environment -->
+    <div id="desktop" class="desktop" style="display: none;">
+        <!-- Desktop Background -->
+        <div class="desktop-background" oncontextmenu="showDesktopMenu(event)">
+            <!-- Desktop Icons -->
+            <div class="desktop-icons">
+                <div class="desktop-icon" ondblclick="openFileManager()">
+                    <div class="icon">📁</div>
+                    <div class="icon-label">Gestionnaire de fichiers</div>
+                </div>
+                <div class="desktop-icon" ondblclick="openChat()">
+                    <div class="icon">💬</div>
+                    <div class="icon-label">Chat Discord</div>
+                </div>
+                <div class="desktop-icon" ondblclick="openCalculator()">
+                    <div class="icon">🧮</div>
+                    <div class="icon-label">Calculatrice</div>
+                </div>
+                <div class="desktop-icon" ondblclick="openNotepad()">
+                    <div class="icon">📝</div>
+                    <div class="icon-label">Bloc-notes</div>
+                </div>
+                <div class="desktop-icon" ondblclick="openGame()">
+                    <div class="icon">🎮</div>
+                    <div class="icon-label">Jeu Snake</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <div class="start-menu-btn" onclick="toggleStartMenu()">🏠 Menu</div>
+            <div class="taskbar-items" id="taskbarItems"></div>
+            <div class="system-tray">
+                <span id="currentTime"></span>
+                <span class="user-info" onclick="showUserMenu()">👤 <span id="currentUser"></span></span>
+                <button onclick="showAdminDashboard()" class="admin-btn">⚙️</button>
+            </div>
+        </div>
+
+        <!-- Start Menu -->
+        <div id="startMenu" class="start-menu" style="display: none;">
+            <div class="start-menu-item" onclick="openFileManager()">📁 Gestionnaire de fichiers</div>
+            <div class="start-menu-item" onclick="openChat()">💬 Chat Discord</div>
+            <div class="start-menu-item" onclick="openCalculator()">🧮 Calculatrice</div>
+            <div class="start-menu-item" onclick="openNotepad()">📝 Bloc-notes</div>
+            <div class="start-menu-item" onclick="openGame()">🎮 Jeu Snake</div>
+            <hr>
+            <div class="start-menu-item" onclick="logout()">🚪 Déconnexion</div>
+        </div>
+
+        <!-- Context Menu -->
+        <div id="contextMenu" class="context-menu" style="display: none;">
+            <div class="context-item" onclick="createNewFolder()">📁 Nouveau dossier</div>
+            <div class="context-item" onclick="createNewFile()">📄 Nouveau fichier</div>
+            <div class="context-item" onclick="importFile()">📥 Importer un fichier</div>
+            <div class="context-item" onclick="refreshDesktop()">🔄 Actualiser</div>
+            <div class="context-item" onclick="openProperties()">⚙️ Propriétés</div>
+        </div>
+
+        <!-- User Menu -->
+        <div id="userMenu" class="user-menu" style="display: none;">
+            <div class="user-menu-item" onclick="showProfile()">👤 Profil</div>
+            <div class="user-menu-item" onclick="showSettings()">⚙️ Paramètres</div>
+            <div class="user-menu-item" onclick="logout()">🚪 Déconnexion</div>
+        </div>
+    </div>
+
+    <!-- Windows Container -->
+    <div id="windowsContainer"></div>
+
+    <!-- Admin Dashboard Access -->
+    <div id="adminAccessModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Accès Dashboard Administrateur</h2>
+            <p>Entrez la clé de sécurité pour accéder au dashboard:</p>
+            <input type="password" id="adminKey" placeholder="Clé de sécurité">
+            <div class="modal-buttons">
+                <button onclick="verifyAdminAccess()">Accéder</button>
+                <button onclick="closeAdminAccess()">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- File Input for Import -->
+    <input type="file" id="fileInput" multiple style="display: none;" onchange="handleFileImport(event)">
+
+    <!-- Scripts -->
+    <script src="js/core.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/desktop.js"></script>
+    <script src="js/windows.js"></script>
+    <script src="js/filemanager.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/apps.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
